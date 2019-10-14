@@ -126,4 +126,4 @@ def handle_text(message):
 
 
 
-bot.polling(none_stop=True,interval=0)
+bot.infinity_polling(True)
