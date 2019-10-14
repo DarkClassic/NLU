@@ -8,6 +8,8 @@ bot = telebot.TeleBot(TOKEN)
 
 bot.send_message(341757028, "test")
 
+upd = bot.get_updates()
+print(upd)
 
 #last_upd = upd[-1]
 
@@ -124,3 +126,4 @@ def handle_text(message):
 
 
 
+bot.polling(none_stop=True,interval=0)
