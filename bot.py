@@ -39,6 +39,4 @@ print(bot.get_me())
 def handle_text(message):
     log(message)
     bot.send_message(message.from_user.id,"Бот створений для вашого комфорту, якшо ви студент нашого коледжу, натисніть STUDENT \n"
-  
-
-bot.polling(none_stop=True,interval=0)
+ 
