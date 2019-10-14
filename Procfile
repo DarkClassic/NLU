@@ -1,2 +1,2 @@
-worker: phyton bot.py
+worker: python bot.py
 heroku ps:scale web=1
