@@ -39,38 +39,6 @@ print(bot.get_me())
 def handle_text(message):
     log(message)
     bot.send_message(message.from_user.id,"Бот створений для вашого комфорту, якшо ви студент нашого коледжу, натисніть STUDENT \n"
-                                      "Якщо ви хочете почати навчатись в нашому коледжі, натисніть STUDY")
-    user_markup = telebot.types.ReplyKeyboardMarkup(True)
-    user_markup.row('/STUDENT','/STUDY')
-    user_markup.row('/HIDE')
-
-    bot.send_message(message.from_user.id,'WELCOME!',reply_markup=user_markup)
-
-
-@bot.message_handler(commands=['STUDY'])
-def handle_text(message):
-    bot.send_message(message.from_user.id,'http://plc.nlu.edu.ua/')
-    bot.send_location(message.from_user.id, 49.580058, 34.559962)
-
-@bot.message_handler(commands=['STUDENT'])
-def handle_text(message):
-    bot.send_message(message.from_user.id, "Дорогий студент, дякуємо за використання боту, ви можете спілкуватися з ним за допомогою бесіди, для відображення повного списку натисніть /help")
-    # bot.send_message(message.from_user.id, 'Відключаем основну клавіатуру...Щоб включити її знову натисніть  /start',
-                    # reply_markup=telebot.types.ReplyKeyboardRemove())
-
-
-@bot.message_handler(commands=['help'])
-def handle_text(message):
-
-    bot.send_message(message.from_user.id,
-                     "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу  \n >>> /AI - робота з штучним інтелектом ")
-    bot.send_message(message.from_user.id, '   ', reply_markup=telebot.types.ReplyKeyboardRemove())
-
-
-    else:
-        log(message)
-        bot.send_message(message.from_user.id, answer)
-
-
+  
 
 bot.polling(none_stop=True,interval=0)
