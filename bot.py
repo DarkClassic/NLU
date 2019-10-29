@@ -2,7 +2,7 @@ import telebot
 
 #main variables
 
-TOKEN = "605014854:AAF1HuRNnc0M8VmzZKlPz7rbYV2FSoFkDE4"
+TOKEN = "605014854:AAH3WMPpc5zVs-sumVTPKmvtrtn02GOQTHY"
 
 bot = telebot.TeleBot(TOKEN)
 
