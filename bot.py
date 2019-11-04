@@ -2,7 +2,10 @@ import telebot
 
 #main variables
 
-TOKEN = "605014854:AAH3WMPpc5zVs-sumVTPKmvtrtn02GOQTHY"
+
+with open("TOKEN.txt") as f:
+    TOKEN = f.read().strip()
+    print(TOKEN)
 
 bot = telebot.TeleBot(TOKEN)
 
