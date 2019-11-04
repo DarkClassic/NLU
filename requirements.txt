@@ -1,4 +1,9 @@
 certifi==2018.11.29
+gunicorn==19.9.0
 pipenv==2018.11.26
+pyTelegramBotAPI==3.6.6
+requests==2.7.0
+six==1.12.0
+telebot==0.0.3
 virtualenv==16.4.3
 virtualenv-clone==0.5.1

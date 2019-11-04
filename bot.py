@@ -2,7 +2,7 @@ import telebot
 
 #main variables
 
-TOKEN = "605014854:AAF1HuRNnc0M8VmzZKlPz7rbYV2FSoFkDE4"
+TOKEN = "605014854:AAH3WMPpc5zVs-sumVTPKmvtrtn02GOQTHY"
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -22,29 +22,42 @@ print(bot.get_me())
 
 def log(message):
     print("----------------")
-    file = open("LOG.txt", mode='a', encoding='utf_8')
+
     file2 = open("username.txt", mode='a', encoding='utf_8')
-    f_str = str(str(message.chat.id) + "\n")
+
     file2.write(str(message.from_user.username) + "\n")
-    file.write(f_str)
-    file.close()
+  #  for line in file2:
+        #if "DarkCassic" in line:
+           #fileLog.write("123")
+         #  print("123")
+
+
     file2.close()
     print("Сообщение от {0} {1} {2} {3} TEXT - {4}. \n ".format(message.from_user.first_name,message.from_user.last_name,message.from_user.username,str(message.from_user.id),str(message.text)))
-
-
-
 
 
 @bot.message_handler(commands=['start'])
 def handle_text(message):
     log(message)
     bot.send_message(message.from_user.id,"Бот створений для вашого комфорту, якшо ви студент нашого коледжу, натисніть STUDENT \n"
-                                      "Якщо ви хочете почати навчатись в нашому коледжі, натисніть STUDY")
+                                      "Якщо ви хочете почати навчатись в нашому коледжі, натисніть STUDY \n"
+                                        "Для отримування новин,розкаладу натисніть, ->   /Register  <-")
     user_markup = telebot.types.ReplyKeyboardMarkup(True)
     user_markup.row('/STUDENT','/STUDY')
     user_markup.row('/HIDE')
 
     bot.send_message(message.from_user.id,'WELCOME!',reply_markup=user_markup)
+
+@bot.message_handler(commands=['Register'])
+def handle_text(message):
+    log(message)
+    fileLog = open("LOG.txt", mode='a+', encoding='utf_8')
+    f_str = str(str(message.chat.id) + "\n")
+    bot.send_message(message.from_user.id, "Вас ЗАРЕЄСТРОВАНО,дякуємо {0}".format(message.from_user.first_name))
+    fileLog.write(f_str)
+    fileLog.close()
+
+
 
 
 @bot.message_handler(commands=['STUDY'])
@@ -110,13 +123,20 @@ def handle_text(message):
 
     elif message.text == "Admin":
      # bot.send_message(message.from_user.id, "Пароль..?")
-     # if message.text == "passPOLICE2001":
-          bot.send_message(message.from_user.id, "Введите Сообщение!")
-          DarkMes = message.text
+         # my_list = []
+         # chatId = int(message.chat.id)
           a_file = open("LOG.txt", mode='r', encoding='utf_8')
           for line in a_file:
-              bot.send_message(message.from_user.id == str(a_file), str(DarkMes))
-       # bot.send_message(message.chat.id, "работаю,так что сосать")
+              help_s = line
+              print(help_s)
+              bot.send_message(help_s, message.text)
+             # len(my_list)+1
+             # my_list.append(line)
+             # my_list = my_list[:-1]
+            #  print(my_list)
+             # del my_list[0]
+            #  print(my_list)
+
 
 
 
