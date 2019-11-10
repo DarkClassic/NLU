@@ -1,15 +1,19 @@
 import telebot
+import Numbers
 
 #main variables
 
-TOKEN = "605014854:AAH3WMPpc5zVs-sumVTPKmvtrtn02GOQTHY"
+
+with open("TOKEN.txt") as f:
+    TOKEN = f.read().strip()
+    print(TOKEN)
 
 bot = telebot.TeleBot(TOKEN)
 
 bot.send_message(341757028, "test")
 
-upd = bot.get_updates()
-print(upd)
+#upd = bot.get_updates()
+#print(upd)
 
 #last_upd = upd[-1]
 
@@ -81,18 +85,44 @@ def handle_text(message):
 
 #Прохання від автора, бот має систему ИИ, він може знаходити НПА по потрібній вам темі, відфільтровуючи їх та шукаючи чинні, я буду дуже вдячний, якщо ви будете кидати йому
 @bot.message_handler(commands=['Schedule'])
+
 def handle_text(message):
     bot.send_message(message.from_user.id,
                      "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу :arrow_forward: \n >>> /AI - робота з штучним інтелектом ")
     bot.send_message(message.from_user.id, "Наразі нічого немає...  ")
     bot.send_message(message.from_user.id, '   ', reply_markup=telebot.types.ReplyKeyboardRemove())
 
+@bot.message_handler(commands=['Edit'])
+
+def handle_text(message):
+
+    bot.send_message(message.from_user.id, "Пароль?")
+
+
+    @bot.message_handler(content_types=['text'])
+    def handle_text(message):
+
+        if message.text == "12345":
+            Numbers.prov = 1
+            bot.send_message(message.from_user.id, "Введите Новости")
+        elif message.text == message.text and Numbers.prov == 1:
+            if Numbers.prov == 1:
+                Numbers.defText = message.text
+                print(Numbers.defText)
+            a_file = open("LOG.txt", mode='r', encoding='utf_8')
+            for line in a_file:
+                help_s = line
+                print(help_s)
+                bot.send_message(help_s, message.text)
+                Numbers.prov = 0
+
+
 
 @bot.message_handler(commands=['News'])
 def handle_text(message):
     bot.send_message(message.from_user.id,
                      "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу :arrow_forward: \n >>> /AI - робота з штучним інтелектом ")
-    bot.send_message(message.from_user.id, "Зараз нічого немає...  ")
+    bot.send_message(message.from_user.id,Numbers.defText)
     bot.send_message(message.from_user.id, '   ', reply_markup=telebot.types.ReplyKeyboardRemove())
 
 @bot.message_handler(commands=['AI'])
@@ -113,36 +143,17 @@ def handle_text(message):
 
 
 
-@bot.message_handler(content_types=['text'])
-def handle_text(message):
-    answer = "Будь-ласка, використовуйте команди, нариклад /start"
-    if message.text == "Головний закон?" or message.text == "головний закон":
-
-      bot.send_message(message.chat.id, "Конституція України")
-
-
-    elif message.text == "Admin":
-     # bot.send_message(message.from_user.id, "Пароль..?")
-         # my_list = []
-         # chatId = int(message.chat.id)
-          a_file = open("LOG.txt", mode='r', encoding='utf_8')
-          for line in a_file:
-              help_s = line
-              print(help_s)
-              bot.send_message(help_s, message.text)
-             # len(my_list)+1
-             # my_list.append(line)
-             # my_list = my_list[:-1]
-            #  print(my_list)
-             # del my_list[0]
-            #  print(my_list)
 
 
 
 
-    else:
-        log(message)
-        bot.send_message(message.from_user.id, answer)
+
+
+
+
+   # else:
+      #  log(message)
+       # bot.send_message(message.from_user.id, answer)
 
 
 
