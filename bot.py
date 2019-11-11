@@ -1,12 +1,15 @@
 import telebot
 import Numbers
+import os
+
+TOKEN = os.environ["TOKEN"]
 
 #main variables
 
 
-with open("TOKEN.txt") as f:
-    TOKEN = f.read().strip()
-    print(TOKEN)
+#with open("TOKEN.txt") as f:
+ #   TOKEN = f.read().strip()
+ #   print(TOKEN)
 
 bot = telebot.TeleBot(TOKEN)
 
