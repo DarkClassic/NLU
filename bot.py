@@ -1,7 +1,6 @@
 import telebot
 import Numbers
 import Schedule
-=======
 import os
 
 TOKEN = os.environ["TOKEN"]
@@ -129,7 +128,7 @@ def handle_text(message):
     bot.send_message(message.from_user.id,
                      "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу :arrow_forward: \n >>> /AI - робота з штучним інтелектом ")
     bot.send_message(message.from_user.id,Numbers.defText)
-    bot.send_message(message.from_user.id, '   ', reply_markup=telebot.types.ReplyKeyboardRemove())
+   # bot.send_message(message.from_user.id, '   ', reply_markup=telebot.types.ReplyKeyboardRemove())
 
 @bot.message_handler(commands=['AI'])
 def handle_text(message):
@@ -150,36 +149,36 @@ def handle_text(message):
 @bot.message_handler(commands=['1'])
 def handle_text(message):
     log(message)
-    bot.send_message(message.from_user.id,"Оберіть группу")
     user_markup = telebot.types.ReplyKeyboardMarkup(True)
     user_markup.row('/11','/12','/13')
     user_markup.row('/HIDE')
+    bot.send_message(message.from_user.id, "Оберіть группу", reply_markup=user_markup)
 
 @bot.message_handler(commands=['2'])
 def handle_text(message):
     log(message)
-    bot.send_message(message.from_user.id,"Оберіть группу")
     user_markup = telebot.types.ReplyKeyboardMarkup(True)
     user_markup.row('/21','/22','/23','/25')
     user_markup.row('/HIDE')
+    bot.send_message(message.from_user.id, "Оберіть группу", reply_markup=user_markup)
 
 
 @bot.message_handler(commands=['3'])
 def handle_text(message):
     log(message)
-    bot.send_message(message.from_user.id,"Оберіть группу")
     user_markup = telebot.types.ReplyKeyboardMarkup(True)
     user_markup.row('/31','/32','/33','/24')
     user_markup.row('/HIDE')
+    bot.send_message(message.from_user.id, "Оберіть группу", reply_markup=user_markup)
 
 
 @bot.message_handler(commands=['4'])
 def handle_text(message):
     log(message)
-    bot.send_message(message.from_user.id,"Оберіть группу")
     user_markup = telebot.types.ReplyKeyboardMarkup(True)
     user_markup.row('/42','/42','/43','/34')
     user_markup.row('/HIDE')
+    bot.send_message(message.from_user.id, "Оберіть группу", reply_markup=user_markup)
 
 
 @bot.message_handler(commands=['11'])
