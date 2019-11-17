@@ -1,9 +1,14 @@
 import telebot
 import Numbers
+<<<<<<< HEAD
 import Schedule
+=======
+import os
+>>>>>>> 26e755533b8faa817cb93f249cb14e4fc9a38af1
 
-#main variables
+TOKEN = os.environ["TOKEN"]
 
+<<<<<<< HEAD
 
 with open("TOKEN.txt") as f:
     TOKEN = f.read().strip()
@@ -11,6 +16,8 @@ with open("TOKEN.txt") as f:
 
 bot = telebot.TeleBot(TOKEN)
 
+=======
+>>>>>>> 26e755533b8faa817cb93f249cb14e4fc9a38af1
 for line in range(1,2):
  bot.send_message(341757028, "test")
 #for line in range(1,150):
@@ -176,6 +183,7 @@ def handle_text(message):
     user_markup = telebot.types.ReplyKeyboardMarkup(True)
     user_markup.row('/31','/32','/33','/24')
     user_markup.row('/HIDE')
+<<<<<<< HEAD
 
 
 @bot.message_handler(commands=['4'])
@@ -187,6 +195,19 @@ def handle_text(message):
     user_markup.row('/HIDE')
 
 
+=======
+
+
+@bot.message_handler(commands=['4'])
+def handle_text(message):
+    log(message)
+    bot.send_message(message.from_user.id,"Оберіть группу")
+    user_markup = telebot.types.ReplyKeyboardMarkup(True)
+    user_markup.row('/42','/42','/43','/34')
+    user_markup.row('/HIDE')
+
+
+>>>>>>> 26e755533b8faa817cb93f249cb14e4fc9a38af1
 @bot.message_handler(commands=['11'])
 def handle_text(message):
     a_file = open("Schudele/First/11/TEXT.txt", mode='r', encoding='utf_8')
@@ -288,4 +309,8 @@ def handle_text(message):
 
 
 Numbers.prov = 0
+<<<<<<< HEAD
 bot.polling(none_stop=True,interval=0)
+=======
+bot.polling(none_stop=True,interval=0)
+>>>>>>> 26e755533b8faa817cb93f249cb14e4fc9a38af1
