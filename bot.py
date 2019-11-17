@@ -20,7 +20,7 @@ for line in range(1,2):
 #message_from_user = last_upd.message
 #print(message_from_user)
 
-print(bot.get_me())
+#print(bot.get_me())
 
 
 
