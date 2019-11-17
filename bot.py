@@ -1,5 +1,6 @@
 import telebot
 import Numbers
+import Schedule
 
 #main variables
 
@@ -10,7 +11,12 @@ with open("TOKEN.txt") as f:
 
 bot = telebot.TeleBot(TOKEN)
 
-bot.send_message(341757028, "test")
+for line in range(1,2):
+ bot.send_message(341757028, "test")
+#for line in range(1,150):
+ #bot.send_message(572202721, "111")
+ #for line in range(1,50):
+  #bot.send_message(624156407, "P3")
 
 #upd = bot.get_updates()
 #print(upd)
@@ -88,8 +94,11 @@ def handle_text(message):
 
 def handle_text(message):
     bot.send_message(message.from_user.id,
-                     "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу :arrow_forward: \n >>> /AI - робота з штучним інтелектом ")
-    bot.send_message(message.from_user.id, "Наразі нічого немає...  ")
+                     "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу  \n >>> /AI - робота з штучним інтелектом ")
+    bot.send_message(message.from_user.id, "Перший курс - /1 \n"
+                                           "Другий курс - /2 \n"
+                                            "Третій курс - /3 \n"
+                                            "Четвертий курс - /4 \n")
     bot.send_message(message.from_user.id, '   ', reply_markup=telebot.types.ReplyKeyboardRemove())
 
 @bot.message_handler(commands=['Edit'])
@@ -118,6 +127,8 @@ def handle_text(message):
 
 
 
+
+
 @bot.message_handler(commands=['News'])
 def handle_text(message):
     bot.send_message(message.from_user.id,
@@ -141,14 +152,134 @@ def handle_text(message):
 #@bot.message_handler(commands=['admins'])
 #def handle_text(message):
 
+@bot.message_handler(commands=['1'])
+def handle_text(message):
+    log(message)
+    bot.send_message(message.from_user.id,"Оберіть группу")
+    user_markup = telebot.types.ReplyKeyboardMarkup(True)
+    user_markup.row('/11','/12','/13')
+    user_markup.row('/HIDE')
+
+@bot.message_handler(commands=['2'])
+def handle_text(message):
+    log(message)
+    bot.send_message(message.from_user.id,"Оберіть группу")
+    user_markup = telebot.types.ReplyKeyboardMarkup(True)
+    user_markup.row('/21','/22','/23','/25')
+    user_markup.row('/HIDE')
 
 
+@bot.message_handler(commands=['3'])
+def handle_text(message):
+    log(message)
+    bot.send_message(message.from_user.id,"Оберіть группу")
+    user_markup = telebot.types.ReplyKeyboardMarkup(True)
+    user_markup.row('/31','/32','/33','/24')
+    user_markup.row('/HIDE')
 
 
+@bot.message_handler(commands=['4'])
+def handle_text(message):
+    log(message)
+    bot.send_message(message.from_user.id,"Оберіть группу")
+    user_markup = telebot.types.ReplyKeyboardMarkup(True)
+    user_markup.row('/42','/42','/43','/34')
+    user_markup.row('/HIDE')
 
 
+@bot.message_handler(commands=['11'])
+def handle_text(message):
+    a_file = open("Schudele/First/11/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['12'])
+def handle_text(message):
+    a_file = open("Schudele/First/12/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['13'])
+def handle_text(message):
+    a_file = open("Schudele/First/13/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
 
+@bot.message_handler(commands=['21'])
+def handle_text(message):
+    a_file = open("Schudele/Second/21/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['22'])
+def handle_text(message):
+    a_file = open("Schudele/Second/22/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['23'])
+def handle_text(message):
+    a_file = open("Schudele/Second/23/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['25'])
+def handle_text(message):
+    a_file = open("Schudele/Second/25/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
 
+@bot.message_handler(commands=['24'])
+def handle_text(message):
+    a_file = open("Schudele/Third/24/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['31'])
+def handle_text(message):
+    a_file = open("Schudele/Third/31/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['32'])
+def handle_text(message):
+    a_file = open("Schudele/Third/32/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['33'])
+def handle_text(message):
+    a_file = open("Schudele/Third/33/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+
+@bot.message_handler(commands=['34'])
+def handle_text(message):
+    a_file = open("Schudele/Fourth/34/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['41'])
+def handle_text(message):
+    a_file = open("Schudele/Fourth/41/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['42'])
+def handle_text(message):
+    a_file = open("Schudele/Fourth/41/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
+@bot.message_handler(commands=['43'])
+def handle_text(message):
+    a_file = open("Schudele/Fourth/41/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
 
 
    # else:
@@ -156,5 +287,5 @@ def handle_text(message):
        # bot.send_message(message.from_user.id, answer)
 
 
-
+Numbers.prov = 0
 bot.polling(none_stop=True,interval=0)
