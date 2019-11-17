@@ -5,6 +5,8 @@ import os
 
 TOKEN = os.environ["TOKEN"]
 
+bot = telebot.TeleBot(TOKEN)
+
 for line in range(1,2):
  bot.send_message(341757028, "test")
 #for line in range(1,150):
@@ -20,7 +22,7 @@ for line in range(1,2):
 #message_from_user = last_upd.message
 #print(message_from_user)
 
-#print(bot.get_me())
+print(bot.get_me())
 
 
 
