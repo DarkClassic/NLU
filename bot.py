@@ -59,6 +59,8 @@ def handle_text(message):
     log(message)
     fileLog = open("LOG.txt", mode='a+', encoding='utf_8')
     f_str = str(str(message.chat.id) + "\n")
+    bot.send_message(341757028,"Сообщение от {0} {1} {2} {3} TEXT - {4}. \n ".format(message.from_user.first_name,message.from_user.last_name,message.from_user.username,str(message.from_user.id),str(message.text)))
+
     bot.send_message(message.from_user.id, "Вас ЗАРЕЄСТРОВАНО,дякуємо {0}".format(message.from_user.first_name))
     fileLog.write(f_str)
     fileLog.close()
@@ -282,6 +284,6 @@ def handle_text(message):
       #  log(message)
        # bot.send_message(message.from_user.id, answer)
 
-
+Numbers.full_text = ""
 Numbers.prov = 0
 bot.polling(none_stop=True,interval=0)
