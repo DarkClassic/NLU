@@ -84,7 +84,7 @@ def handle_text(message):
 def handle_text(message):
 
     bot.send_message(message.from_user.id,
-                     "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу  \n >>> /AI - робота з штучним інтелектом ")
+                     "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу  \n >>> /Retaking - графік перездач ")
     bot.send_message(message.from_user.id, '   ', reply_markup=telebot.types.ReplyKeyboardRemove())
 
 #Прохання від автора, бот має систему ИИ, він може знаходити НПА по потрібній вам темі, відфільтровуючи їх та шукаючи чинні, я буду дуже вдячний, якщо ви будете кидати йому
@@ -92,7 +92,7 @@ def handle_text(message):
 
 def handle_text(message):
     bot.send_message(message.from_user.id,
-                     "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу  \n >>> /AI - робота з штучним інтелектом ")
+                     "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу  \n >>> /Retaking - графік перездач ")
     bot.send_message(message.from_user.id, "Перший курс - /1 \n"
                                            "Другий курс - /2 \n"
                                             "Третій курс - /3 \n"
@@ -131,15 +131,9 @@ def handle_text(message):
 @bot.message_handler(commands=['News'])
 def handle_text(message):
     bot.send_message(message.from_user.id,
-                     "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу :arrow_forward: \n >>> /AI - робота з штучним інтелектом ")
+                     "Повний список основних команд \n >>> /Schedule - розклад \n >>> /News - новини коледжу \n >>> /Retaking - графік перездач ")
     bot.send_message(message.from_user.id,Numbers.defText)
    # bot.send_message(message.from_user.id, '   ', reply_markup=telebot.types.ReplyKeyboardRemove())
-
-@bot.message_handler(commands=['AI'])
-def handle_text(message):
-    bot.send_message(message.from_user.id, "Прохання від автора, бот має систему ИИ, він може знаходити НПА по потрібній вам темі, відфільтровуючи їх та шукаючи чинні, я буду дуже вдячний, "
-                                           "якщо ви будете відправляти йому посилання з НПА та вести бесіду з ним по темі права, таким чином ви по запросу, "
-                                           "наприклад(Трудове право, відпустка зможете отриматі пов'язані документи та терміни.) Наданний момент він може відповідати на нескладні запитання [В РОЗРОБЦІ]")
 
 
 @bot.message_handler(commands=['HIDE'])
@@ -147,7 +141,13 @@ def handle_text(message):
 
     bot.send_message(message.from_user.id,'Відключаем клавіатуру...Щоб включити її знову натисніть  /start', reply_markup=telebot.types.ReplyKeyboardRemove())
 
-
+@bot.message_handler(commands=['Retaking'])
+def handle_text(message):
+    Numbers.full_text = ""
+    a_file = open("Retaking/TEXT.txt", mode='r', encoding='utf_8')
+    for line in a_file:
+        Numbers.full_text += line
+    bot.send_message(message.chat.id, Numbers.full_text)
 #@bot.message_handler(commands=['admins'])
 #def handle_text(message):
 
