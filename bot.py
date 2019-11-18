@@ -109,6 +109,7 @@ def handle_text(message):
     @bot.message_handler(content_types=['text'])
     def handle_text(message):
 
+        Numbers.prov = 0
         if message.text == "EditAdmin123":
             Numbers.prov = 1
             bot.send_message(message.from_user.id, "Введите Новости")
@@ -187,18 +188,21 @@ def handle_text(message):
 
 @bot.message_handler(commands=['11'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/First/11/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['12'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/First/12/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['13'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/First/13/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
@@ -206,24 +210,28 @@ def handle_text(message):
 
 @bot.message_handler(commands=['21'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Second/21/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['22'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Second/22/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['23'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Second/23/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['25'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Second/25/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
@@ -231,24 +239,28 @@ def handle_text(message):
 
 @bot.message_handler(commands=['24'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Third/24/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['31'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Third/31/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['32'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Third/32/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['33'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Third/33/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
@@ -256,24 +268,28 @@ def handle_text(message):
 
 @bot.message_handler(commands=['34'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Fourth/34/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['41'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Fourth/41/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['42'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Fourth/41/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['43'])
 def handle_text(message):
+    Numbers.full_text = ""
     a_file = open("Schudele/Fourth/41/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
@@ -283,7 +299,7 @@ def handle_text(message):
    # else:
       #  log(message)
        # bot.send_message(message.from_user.id, answer)
-
+line = ""
 Numbers.full_text = ""
 Numbers.prov = 0
 bot.polling(none_stop=True,interval=0)
