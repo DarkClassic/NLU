@@ -109,12 +109,12 @@ def handle_text(message):
     @bot.message_handler(content_types=['text'])
     def handle_text(message):
 
-        Numbers.prov = 0
         if message.text == "EditAdmin123":
             Numbers.prov = 1
             bot.send_message(message.from_user.id, "Введите Новости")
         elif message.text == message.text and Numbers.prov == 1:
             if Numbers.prov == 1:
+                Numbers.prov = 0
                 Numbers.defText = message.text
                 print(Numbers.defText)
             a_file = open("LOG.txt", mode='r', encoding='utf_8')
@@ -283,14 +283,14 @@ def handle_text(message):
 @bot.message_handler(commands=['42'])
 def handle_text(message):
     Numbers.full_text = ""
-    a_file = open("Schudele/Fourth/41/TEXT.txt", mode='r', encoding='utf_8')
+    a_file = open("Schudele/Fourth/42/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
 @bot.message_handler(commands=['43'])
 def handle_text(message):
     Numbers.full_text = ""
-    a_file = open("Schudele/Fourth/41/TEXT.txt", mode='r', encoding='utf_8')
+    a_file = open("Schudele/Fourth/43/TEXT.txt", mode='r', encoding='utf_8')
     for line in a_file:
         Numbers.full_text += line
     bot.send_message(message.chat.id, Numbers.full_text)
