@@ -107,7 +107,7 @@ def handle_text(message):
     @bot.message_handler(content_types=['text'])
     def handle_text(message):
 
-        if message.text == "12345":
+        if message.text == "EditAdmin123":
             Numbers.prov = 1
             bot.send_message(message.from_user.id, "Введите Новости")
         elif message.text == message.text and Numbers.prov == 1:
@@ -178,7 +178,7 @@ def handle_text(message):
 def handle_text(message):
     log(message)
     user_markup = telebot.types.ReplyKeyboardMarkup(True)
-    user_markup.row('/42','/42','/43','/34')
+    user_markup.row('/41','/42','/43','/34')
     user_markup.row('/HIDE')
     bot.send_message(message.from_user.id, "Оберіть группу", reply_markup=user_markup)
 
