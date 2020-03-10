@@ -1,9 +1,14 @@
 import telebot
+import os
 import Numbers
 import Schedule
-import os
 
-TOKEN = os.environ["TOKEN"]
+#main variables
+
+
+with open("TOKEN.txt") as f:
+    TOKEN = f.read().strip()
+    print(TOKEN)
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -158,6 +163,7 @@ def handle_text(message):
     user_markup.row('/11','/12','/13')
     user_markup.row('/HIDE')
     bot.send_message(message.from_user.id, "Оберіть группу", reply_markup=user_markup)
+    bot.send_message(message.from_user.id, "Для отримання документу розкладу натиснить це - /doc",reply_markup=user_markup)
 
 @bot.message_handler(commands=['2'])
 def handle_text(message):
@@ -186,114 +192,373 @@ def handle_text(message):
     bot.send_message(message.from_user.id, "Оберіть группу", reply_markup=user_markup)
 
 
+@bot.message_handler(commands=['doc'])
+def handle_text(message):
+    check = 0
+    dir = 'Schudele/'
+    ifd = os.listdir(dir)
+    try:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_document')
+            bot.send_document(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+    except:
+        if check == 0:
+            bot.send_message(message.chat.id, "Файл отсутсвует")
+
 @bot.message_handler(commands=['11'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/First/11'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/First/11/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/First/11/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check =1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            # p_file = open("Schudele/First/11/photo.png", mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
+
 @bot.message_handler(commands=['12'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/First/12'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/First/12/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/First/12/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 @bot.message_handler(commands=['13'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/First/13'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/First/13/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/First/13/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 
 @bot.message_handler(commands=['21'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Second/21'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Second/21/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Second/21/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 @bot.message_handler(commands=['22'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Second/22'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Second/22/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Second/22/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 @bot.message_handler(commands=['23'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Second/23'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Second/23/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Second/23/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 @bot.message_handler(commands=['25'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Second/25'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Second/25/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Second/25/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 
 @bot.message_handler(commands=['24'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Second/24'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Third/24/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Second/24/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 @bot.message_handler(commands=['31'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Third/31'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Third/31/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Third/31/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 @bot.message_handler(commands=['32'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Third/32'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Third/32/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Third/32/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 @bot.message_handler(commands=['33'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Third/33'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Third/33/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Third/33/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 
 @bot.message_handler(commands=['34'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Third/34'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Fourth/34/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Third/34/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 @bot.message_handler(commands=['41'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Fourth/41'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Fourth/41/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Fourth/41/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 @bot.message_handler(commands=['42'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Fourth/42'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Fourth/42/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Fourth/42/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 @bot.message_handler(commands=['43'])
 def handle_text(message):
+    check = 0
+    dir = 'Schudele/Fourth/43'
+    ifd = os.listdir(dir)
     Numbers.full_text = ""
-    a_file = open("Schudele/Fourth/43/TEXT.txt", mode='r', encoding='utf_8')
-    for line in a_file:
-        Numbers.full_text += line
-    bot.send_message(message.chat.id, Numbers.full_text)
+    try:
+        a_file = open("Schudele/Fourth/43/TEXT.txt", mode='r', encoding='utf_8')
+        for line in a_file:
+            Numbers.full_text += line
+        bot.send_message(message.chat.id, Numbers.full_text)
+        check = 1
+    except:
+        print(dir)
+        for file in ifd:
+            p_file = open(dir + '/' + file, mode='rb')
+            bot.send_chat_action(message.chat.id, 'upload_photo')
+            bot.send_photo(message.chat.id, p_file)
+            p_file.close()
+            check = 1
+
+    if check == 0:
+        bot.send_message(message.chat.id, "Файл отсутсвует")
 
 
    # else:
