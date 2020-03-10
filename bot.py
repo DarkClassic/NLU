@@ -6,11 +6,11 @@ import Schedule
 #main variables
 
 
-with open("TOKEN.txt") as f:
-    TOKEN = f.read().strip()
-    print(TOKEN)
+TOKEN = os.environ["TOKEN"]
 
 bot = telebot.TeleBot(TOKEN)
+
+
 
 for line in range(1,2):
  bot.send_message(341757028, "test")
