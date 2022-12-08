@@ -1,4 +1,4 @@
-certifi==2018.11.29
+certifi==2022.12.7
 gunicorn==19.9.0
 pipenv==2018.11.26
 pyTelegramBotAPI==3.6.6
